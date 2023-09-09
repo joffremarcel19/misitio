@@ -21,4 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource('estudiante', EstudianteController::class);
 Route::apiResource('persona', PersonaController::class);
-Route::get('/buscapersona/{cedula}', 'PersonaController@buscapersona');
+
+Route::get('/buscapersona/{cedula}',[PersonaController::class,'buscapersona']);
+/*Route::apiResource(PersonaController::class)->group(function(){
+    Route::get('/buscapersona/{cedula}','buscapersona');
+});*/
+

@@ -18,8 +18,8 @@ class PersonaController extends Controller
 
     public function buscapersona($cedula)
     {
-        $persona = Persona::where('cedula', $cedula)->first();
-        if ($persona) {
+        $persona = Persona::where('cedula',$cedula)->first();
+        if (!$persona) {
             return response()->json(['mensaje' => 'Persona no encontrada']);
         }
         return response()->json($persona);
